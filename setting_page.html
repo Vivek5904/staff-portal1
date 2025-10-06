@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | DY Patil Staff Portal</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: "Poppins", sans-serif; }
+    body { background: #f5f7fa; color: #333; }
+
+    /* Header / Navbar */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo { font-size: 24px; font-weight: bold; }
+    nav ul { list-style:none; display:flex; gap:20px; }
+    nav ul li a { color: #fff; text-decoration:none; font-weight: 500; }
+    nav ul li a:hover { text-decoration: underline; }
+
+    /* Banner */
+    .banner {
+      background: linear-gradient(to right, #2575fc, #003366);
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: -50px auto 40px;
+      padding: 0 20px;
+    }
+
+    /* Settings Form */
+    .settings-form {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .settings-form:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .settings-form h3 {
+      font-size: 22px;
+      color: #003366;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      color: #003366;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #2575fc;
+      box-shadow: 0 0 6px rgba(37,117,252,0.4);
+    }
+    .btn-save {
+      width: 100%;
+      background: linear-gradient(90deg, #2575fc, #003366);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-save:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #003366;
+      color: #fff;
+      margin-top: 30px;
+    }
+
+    @media(max-width:768px) {
+      header { flex-direction: column; align-items: flex-start; gap:10px; }
+      .banner { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">DY Patil Staff Portal</div>
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Salary</a></li>
+        <li><a href="#">Leave</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">Settings</div>
+
+  <div class="container">
+    <form class="settings-form">
+      <h3>Update Account Settings</h3>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label for="password">New Password</label>
+        <input type="password" id="password" placeholder="Enter new password">
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" placeholder="Confirm new password">
+      </div>
+
+      <div class="form-group">
+        <label for="notifications">Notification Preferences</label>
+        <select id="notifications">
+          <option value="all">All Notifications</option>
+          <option value="important">Only Important</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-save">Save Changes</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 DY Patil College | All Rights Reserved
+  </footer>
+
+</body>
+</html>

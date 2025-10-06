@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leave & Attendance | DY Patil College</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { display: flex; background: #f4f7fb; color: #222; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      height: 100vh;
+      background: linear-gradient(180deg, #003366, #00509e);
+      color: white;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 15px;
+    }
+    .sidebar h2 { font-size: 22px; text-align: center; margin-bottom: 40px; }
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      display: block;
+      padding: 12px 18px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+    .sidebar a:hover, .sidebar a.active { background: #2575fc; }
+
+    /* Main Content */
+    .main { margin-left: 230px; width: calc(100% - 230px); padding: 25px; }
+    header { background: white; padding: 15px 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; }
+    header h1 { color: #003366; font-size: 24px; }
+    header span { font-size: 15px; color: #555; }
+
+    /* Forms & Buttons */
+    input, select, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: linear-gradient(90deg, #004aad, #007bff);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: linear-gradient(90deg, #007bff, #004aad); }
+
+    /* Cards */
+    .cards-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+    .status-card, .leave-card {
+      flex: 1;
+      min-width: 150px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .status-card:hover, .leave-card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(0,0,0,0.15); }
+    .status-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .status-card .label, .leave-card .label { font-weight: 600; margin-bottom: 5px; }
+    .status-card .value, .leave-card .value { font-size: 1.2rem; font-weight: bold; }
+
+    /* Attendance Colors */
+    .status-card.present { background: linear-gradient(135deg, #4caf50, #81c784); color: white; }
+    .status-card.absent { background: linear-gradient(135deg, #f44336, #e57373); color: white; }
+    .status-card.onleave { background: linear-gradient(135deg, #ffb300, #ffd54f); color: white; }
+
+    /* Leave Balance Colors */
+    .leave-card.sick { background: linear-gradient(135deg, #42a5f5, #64b5f6); color: white; }
+    .leave-card.casual { background: linear-gradient(135deg, #ab47bc, #ba68c8); color: white; }
+    .leave-card.earned { background: linear-gradient(135deg, #ff7043, #ff8a65); color: white; }
+
+    /* Section Boxes */
+    .dashboard, .history-table { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-top: 20px; }
+
+    /* Table */
+    .history-table table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .history-table th, .history-table td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+    .history-table th { background: #004aad; color: white; }
+
+    /* Responsive Design */
+    @media(max-width:768px) {
+      .sidebar { width: 70px; text-align: center; }
+      .sidebar a { font-size: 0; }
+      .sidebar a::before { content: attr(data-icon); font-size: 20px; }
+      .main { margin-left: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>DY PATIL</h2>
+    <a href="dashboard.html">🏠 Dashboard</a>
+    <a href="Salary_Page.html">💰 Salary</a>
+    <a href="leave_and_attendance.html" class="active">🗓️ Leave</a>
+    <a href="report_and_analytics_page.html">📊 Reports</a>
+    <a href="profile_page.html">👤 Profile</a>
+    <a href="notification_page.html">🔔 Notifications</a>
+    <a href="setting_page.html">⚙️ Settings</a>
+    <a href="#">🚪 Logout</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <header>
+      <h1>Leave & Attendance</h1>
+      <span>Welcome, Prof. Vivek | Last Login: Oct 5, 2025</span>
+    </header>
+
+    <!-- Leave Application Form -->
+    <div class="dashboard">
+      <h2>Apply for Leave</h2>
+      <form action="#" method="POST">
+        <select name="leave_type" required>
+          <option value="">Select Leave Type</option>
+          <option value="sick">Sick Leave</option>
+          <option value="casual">Casual Leave</option>
+          <option value="earned">Earned Leave</option>
+        </select>
+        <input type="date" name="start_date" required />
+        <input type="date" name="end_date" required />
+        <textarea name="reason" placeholder="Reason for Leave" required></textarea>
+        <button type="submit">Submit Leave Request</button>
+      </form>
+    </div>
+
+    <!-- Attendance Overview -->
+    <div class="dashboard">
+      <h2>Attendance Overview</h2>
+      <div class="cards-container">
+        <div class="status-card present">
+          <!-- <div class="icon">✔️</div> -->
+          <div class="label">Present</div>
+          <div class="value">18 Days</div>
+        </div>
+        <div class="status-card absent">
+          <!-- <div class="icon">❌</div> -->
+          <div class="label">Absent</div>
+          <div class="value">2 Days</div>
+        </div>
+        <div class="status-card onleave">
+          <!-- <div class="icon">🟡</div> -->
+          <div class="label">On Leave</div>
+          <div class="value">5 Days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leave Balance -->
+    <div class="dashboard">
+      <h2>Leave Balance</h2>
+      <div class="cards-container">
+        <div class="leave-card sick">
+          <div class="label">Sick Leave</div>
+          <div class="value">5 Days Left</div>
+        </div>
+        <div class="leave-card casual">
+          <div class="label">Casual Leave</div>
+          <div class="value">3 Days Left</div>
+        </div>
+        <div class="leave-card earned">
+          <div class="label">Earned Leave</div>
+          <div class="value">10 Days Left</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leave History -->
+    <div class="history-table">
+      <h2>Leave History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Leave Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sick Leave</td>
+            <td>Sep 15, 2025</td>
+            <td>Sep 16, 2025</td>
+            <td>Approved</td>
+          </tr>
+          <tr>
+            <td>Casual Leave</td>
+            <td>Aug 20, 2025</td>
+            <td>Aug 20, 2025</td>
+            <td>Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>

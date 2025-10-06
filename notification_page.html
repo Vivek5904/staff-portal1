@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications | DY Patil Staff Portal</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: "Poppins", sans-serif; }
+    body { background: #f5f7fa; color: #333; }
+
+    /* Header / Navbar */
+    header {
+      background: #003366;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo { font-size: 24px; font-weight: bold; }
+    nav ul { list-style:none; display:flex; gap:20px; }
+    nav ul li a { color: #fff; text-decoration:none; font-weight: 500; }
+    nav ul li a:hover { text-decoration: underline; }
+
+    /* Banner */
+    .banner {
+      background: linear-gradient(to right, #2575fc, #003366);
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -50px auto 40px;
+      padding: 0 20px;
+    }
+
+    /* Notification List */
+    .notifications {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .notification-card {
+      background: #fff;
+      border-left: 5px solid #2575fc;
+      padding: 20px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .notification-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .notification-card h4 {
+      font-size: 18px;
+      color: #003366;
+      margin-bottom: 5px;
+    }
+
+    .notification-card p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .notification-date {
+      font-size: 12px;
+      color: #999;
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #003366;
+      color: #fff;
+      margin-top: 30px;
+    }
+
+    @media(max-width:768px) {
+      header { flex-direction: column; align-items: flex-start; gap:10px; }
+      .banner { font-size: 22px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">DY Patil Staff Portal</div>
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Salary</a></li>
+        <li><a href="#">Leave</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">Notifications</div>
+
+  <div class="container">
+    <div class="notifications">
+      <div class="notification-card">
+        <h4>Salary Updated</h4>
+        <p>Your salary for September 2025 has been processed successfully.</p>
+        <div class="notification-date">2025-10-01</div>
+      </div>
+      <div class="notification-card">
+        <h4>Leave Approved</h4>
+        <p>Your casual leave request for 2025-09-15 has been approved.</p>
+        <div class="notification-date">2025-09-16</div>
+      </div>
+      <div class="notification-card">
+        <h4>Pending Document</h4>
+        <p>Please submit your medical certificate for sick leave request.</p>
+        <div class="notification-date">2025-09-20</div>
+      </div>
+      <div class="notification-card">
+        <h4>New Announcement</h4>
+        <p>Staff meeting scheduled on 2025-10-05 at 10:00 AM in Conference Hall.</p>
+        <div class="notification-date">2025-10-02</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 DY Patil College | All Rights Reserved
+  </footer>
+
+</body>
+</html>
